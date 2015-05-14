@@ -1,0 +1,29 @@
+{
+  "name": "candidate",
+  "version": "1.0.0",
+  "description": "Smart way to get news feed based on your profile",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thebergamo/candidate.git"
+  },
+  "keywords": [
+    "news",
+    "feed",
+    "smart",
+    "profile"
+  ],
+  "author": "Marcos Bérgamo <marcos@thedon.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thebergamo/candidate/issues"
+  },
+  "homepage": "https://github.com/thebergamo/candidate#readme",
+  "dependencies": {
+    "bluebird": "^2.9.25",
+    "twit": "^1.1.20"
+  }
+}
