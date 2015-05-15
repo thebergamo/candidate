@@ -24,6 +24,7 @@
   "homepage": "https://github.com/thebergamo/candidate#readme",
   "dependencies": {
     "bluebird": "^2.9.25",
+    "diffbot-api-client": "^1.0.0",
     "twit": "^1.1.20"
   }
 }
