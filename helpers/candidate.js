@@ -1,4 +1,5 @@
 var Twit = require('twit');
+var vector = require('term-vector');
 var Diffbot = require('diffbot-api-client');
 var Promise = require('bluebird');
 
@@ -56,6 +57,10 @@ module.exports.restart = function(){
 	});
 };
 
+module.exports.analyze = function(url){
+	//TODO	
+}
+
 module.exports.listen = function(){
 	return new Promise(function(resolve, reject){
 		StreamEvent.on('tweet', function(tweet){
@@ -80,15 +85,18 @@ module.exports.listen = function(){
 							return reject(err);
 						}
 
+						var options = {};
+						options.stp = Vector.getStopwords();
+						options.stp.concat(require('../helpers/stopwords'));
 						var analyze = JSON.parse(analyze);
 						if(analyze.type == 'article'){
 							var article = new db.article({
-									title		: analyze.title,
+									title		: analyze.object[0].title,
 									author	: info.user, //twitter author
 									tweet		: info.id,
 									date 		: info.date,
 									url			: analyze.request.pageUrl,
-									vector	: ,
+									vector	: Vector.getVector(analyze.object[0].text, options),
 									score		: 10
 							});
 

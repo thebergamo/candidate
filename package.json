@@ -27,6 +27,7 @@
     "diffbot-api-client": "^1.0.0",
     "hapi": "^8.4.0",
     "mongoose": "^4.0.3",
+    "term-vector": "0.0.8",
     "twit": "^1.1.20"
   }
 }
