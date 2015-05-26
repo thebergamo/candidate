@@ -57,8 +57,24 @@ module.exports.restart = function(){
 	});
 };
 
-module.exports.analyze = function(url){
-	//TODO	
+module.exports.getArticles = function(user){
+	//TODO
+}
+
+module.exports.stopWords = function(){
+	var timeoutId;
+	var setWords = function(){
+		timeoutId = setTimeout(function(){
+			return db.stopWords.findAsync()
+			.then(function(stopWords){
+				StreamEvent.params.track = stopWords.words;
+			})
+			.catch(function(err){
+				throw err;
+			});
+		});
+	}
+
 }
 
 module.exports.listen = function(){
@@ -100,7 +116,8 @@ module.exports.listen = function(){
 									score		: 10
 							});
 
-							return article.saveAsync();
+							article.saveAsync();
+							return resolve();
 						}
 					});
 				});
